@@ -21,15 +21,6 @@
         }
     ],
     "perf-for-design.html",
-    "two-types-of-performance.html",
-    [
-        "delivery-perf.html",
-        "amazon.html"
-    ],
-    [
-        "response-size.html",
-        "cost-of-performance.html"
-    ],
     "neuroscience.html",
     {
         "filename": "the-treachery-of-images.html",
