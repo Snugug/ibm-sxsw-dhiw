@@ -1,0 +1,42 @@
+[
+    {
+        "filename": "index.html",
+        "attr": {
+            "data-state": "dark"
+        }
+    },
+    [
+        {
+            "filename": "jobs.html",
+            "attr": {
+                "data-state": "dark",
+                "data-transition": "slide"
+            }
+        },
+        {
+            "filename": "jobs-works.html",
+            "attr": {
+                "data-state": "dark jobs"
+            }
+        }
+    ],
+    "perf-for-design.html",
+    "two-types-of-performance.html",
+    [
+        "delivery-perf.html",
+        "amazon.html"
+    ],
+    [
+        "response-size.html",
+        "cost-of-performance.html"
+    ],
+    "neuroscience.html",
+    {
+        "filename": "the-treachery-of-images.html",
+        "attr": {
+            "data-state": "treachery"
+        }
+    },
+    "how-it-works.html",
+    "thank-you.html"
+]

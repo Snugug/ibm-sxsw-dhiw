@@ -1,0 +1,14 @@
+<div class="_grid">
+  <article class="_grid--main">
+    {{% for listing in listings %}}
+      <div class="_grid--item">
+        {{ listing }}
+      </div>
+    {{% endif %}}
+  </article>
+  <aside class="_grid--secondary">
+    <div class="_grid--featured">
+      {{ listing.featured }}
+    </div>
+  </aside>
+</div>

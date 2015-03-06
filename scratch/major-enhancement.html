@@ -1,0 +1,326 @@
+<style>
+  .listing {
+    box-sizing: border-box;
+    background: #accedc;
+    color: #333;
+    padding: 1em;
+    border-radius: .5em;
+    font-family: sans-serif;
+    margin: 0 auto;
+  }
+
+  .listing * + * {
+    margin-top: 1em;
+  }
+
+  .listing--amenity + .listing--amenity {
+    margin-top: 0;
+  }
+
+  .listing * {
+    box-sizing: border-box;
+  }
+
+  .listing--details-header {
+    font-size: 1.25em;
+  }
+
+  .listing--amenities {
+    margin-left: 1em;
+    padding-right: 1em;
+  }
+
+  .listing--image {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border: .25em ridge #478ca7;
+  }
+
+  .address--street {
+    margin-top: 0;
+    display: block;
+  }
+
+  .listing--view {
+    display: inline-block;
+    text-decoration: none;
+    color: #111;
+    padding: .25em .5em;
+    background: #64a4bd;
+    text-shadow: 0em 0.01em #88b9cc, 0.01em 0em #accedc, 0.01em 0.02em #88b9cc, 0.02em 0.01em #accedc, 0.02em 0.03em #88b9cc, 0.03em 0.02em #accedc, 0.03em 0.04em #88b9cc, 0.04em 0.03em #accedc, 0.04em 0.05em #88b9cc, 0.05em 0.04em #accedc, 0.05em 0.06em #88b9cc, 0.06em 0.05em #accedc, 0.06em 0.07em #88b9cc, 0.07em 0.06em #accedc, 0.07em 0.08em #88b9cc, 0.08em 0.07em #accedc, 0.08em 0.09em #88b9cc, 0.09em 0.08em #accedc, 0.09em 0.1em #88b9cc, 0.1em 0.09em #accedc;
+    font-size: 1.15em;
+    border-radius: .5em;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
+    transition: box-shadow .25s, transform .25s, text-shadow .25s;
+  }
+
+  .listing--view:hover {
+    transform: scale(1.03);
+    text-shadow: 0em 0.01em #88b9cc, 0.01em 0em #accedc, 0.01em 0.02em #88b9cc, 0.02em 0.01em #accedc, 0.02em 0.03em #88b9cc, 0.03em 0.02em #accedc, 0.03em 0.04em #88b9cc, 0.04em 0.03em #accedc, 0.04em 0.05em #88b9cc, 0.05em 0.04em #accedc, 0.05em 0.06em #88b9cc, 0.06em 0.05em #accedc, 0.06em 0.07em #88b9cc, 0.07em 0.06em #accedc, 0.07em 0.08em #88b9cc, 0.08em 0.07em #accedc, 0.08em 0.09em #88b9cc, 0.09em 0.08em #accedc, 0.09em 0.1em #88b9cc, 0.1em 0.09em #accedc, 0.1em 0.11em #88b9cc, 0.11em 0.1em #accedc, 0.11em 0.12em #88b9cc, 0.12em 0.11em #accedc, 0.12em 0.13em #88b9cc, 0.13em 0.12em #accedc, 0.13em 0.14em #88b9cc, 0.14em 0.13em #accedc, 0.14em 0.15em #88b9cc, 0.15em 0.14em #accedc;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, .5);
+  }
+
+  .listing--view:active {
+    transition: box-shadow .05s, transform .05s;
+    transform: scale(0.97);
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, .5);
+  }
+
+  .listing--view:after {
+    content: '➫';
+    font-size: 1.25em;
+    margin-left: .25em;
+  }
+
+  .listing--preview {
+    text-align: center;
+  }
+
+  .address--street + * {
+    margin-top: 0;
+  }
+
+  [data-eq-state="small"]:after,
+  [data-eq-state="large"]:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  [data-eq-state="small"] .listing--preview,
+  [data-eq-state="large"] .listing--preview {
+    float: left;
+    width: calc(40% - .5em);
+    margin-right: .5em;
+    margin-top: 0;
+  }
+  [data-eq-state="small"] .listing--info,
+  [data-eq-state="large"] .listing--info {
+    float: right;
+    width: calc(60% - .5em);
+    margin-left: .5em;
+  }
+
+  [data-eq-state="large"] .listing--details {
+    float: left;
+    width: calc(50% - .5em);
+    margin-right: .5em;
+  }
+  [data-eq-state="large"] .listing--address {
+    float: right;
+    width: calc(50% - .5em);
+    margin-left: .5em;
+    margin-top: 0;
+  }
+  [data-eq-state="large"] .listing--view {
+    clear: both;
+    float: left;
+  }
+
+  .listing--map {
+    float: left;
+    clear: both;
+    /*border: .25em groove #478ca7;*/
+    margin-bottom: 1em;
+  }
+
+  [data-eq-state="small"] .listing--map,
+  [data-eq-state="large"] .listing--map {
+    margin-bottom: 0;
+  }
+
+  .listing--map {
+  position: relative;
+  height: 0;
+  padding-top: 56.25%;
+  width: 100%;
+}
+.listing--map > * {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+</style>
+
+<article class="listing" data-eq-pts="small: 346, large: 619">
+  <div class="listing--info">
+    <section class="listing--details">
+      <h2 class="listing--details-header">Property Details</h2>
+      <ul class="listing--amenities">
+        <li class="listing--amenity">4 bedroom / 3 bath</li>
+        <li class="listing--amenity">2-car garage</li>
+      </ul>
+    </section>
+
+    <section class="listing--address" itemscope itemtype="http://schema.org/PostalAddress">
+      <h2 class="address--name" itemprop="name">The White House</h2>
+      <span class="address--street" itemprop="streetAddress">1600 Pennsylvania Ave</span>
+      <span class="address--locality" itemprop="addressLocality">Washington</span>,
+      <span class="address--region" itemprop="addressRegion">DC</span>
+      <span class="address--postal-code" itemprop="postalCode">20500</span>
+    </section>
+
+
+    <a class="listing--view" href="https://www.google.com/maps/place/1600 Pennsylvania Ave,+Washington,+DC+20500">View Map</a>
+  </div>
+
+  <aside class="listing--preview">
+    <img class="listing--image" src="https://raw.githubusercontent.com/Snugug/graded-components/master/images/house.jpg" alt="The White House">
+  </aside>
+</article>
+
+<script>
+  (function () {
+    'use strict';
+
+    window.addEventListener('load', function () {
+      var listings = document.querySelectorAll('.listing'),
+          listing,
+          parent,
+          link,
+          address,
+          latency,
+          i;
+
+
+      if (window.performance) {
+        latency = window.performance.timing.responseStart - window.performance.timing.requestStart;
+
+        if (latency < 100) {
+          for (i = 0; i < listings.length; i++) {
+            listing = listings[i];
+            address = encodeURIComponent(listing.querySelector('.listing--address').innerText);
+            parent = listing.querySelector('.listing--view').parentNode;
+            link = listing.querySelector('.listing--view');
+
+            var wrapper = document.createElement('div'),
+                map = document.createElement('iframe');
+
+            wrapper.classList.add('listing--map');
+            map.setAttribute('frameborder', 0);
+            map.setAttribute('src', 'https://www.google.com/maps/embed/v1/place?q=' + address + '&key=AIzaSyD6ATXLbrPCgBoeLzcWD1AphoYxKxwbNjE');
+
+            wrapper.appendChild(map);
+
+            parent.insertBefore(wrapper, link);
+
+            parent.removeChild(link);
+          }
+        }
+      }
+    });
+  }());
+</script>
+
+<style>
+  /*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+</style>
+
+<script src="../bower_components/eq.js/dist/eq.min.js"></script>

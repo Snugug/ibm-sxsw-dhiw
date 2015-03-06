@@ -1,0 +1,216 @@
+.reveal pre[class*="language-"] {
+  box-shadow: none;
+  max-height: calc(100vh - 7rem - 20px);
+}
+
+.reveal pre[class*="language-"].small {
+  font-size: .65em;
+}
+
+.reveal code[class*="language-"],
+.reveal pre[class*="language-"] {
+  color: black;
+  text-shadow: 0 1px white;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 2;
+  -o-tab-size: 2;
+  tab-size: 2;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  background: none;
+  outline: none;
+}
+.reveal pre[class*="language-"]::-moz-selection, .reveal pre[class*="language-"] ::-moz-selection,
+.reveal code[class*="language-"]::-moz-selection, .reveal code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+.reveal pre[class*="language-"]::selection, .reveal pre[class*="language-"] ::selection,
+.reveal code[class*="language-"]::selection, .reveal code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+@media print {
+  .reveal code[class*="language-"],
+  .reveal pre[class*="language-"] {
+    text-shadow: none;
+  }
+}
+.reveal pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+}
+.reveal :not(pre) > code[class*="language-"],
+.reveal pre[class*="language-"] {
+  background: #f5f2f0;
+}
+.reveal :not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+}
+.reveal .token.comment,
+.reveal .token.prolog,
+.reveal .token.doctype,
+.reveal .token.cdata {
+  color: slategray;
+}
+.reveal .token.punctuation {
+  color: #999;
+}
+.reveal .namespace {
+  opacity: .7;
+}
+.reveal .token.property,
+.reveal .token.tag,
+.reveal .token.boolean,
+.reveal .token.number,
+.reveal .token.constant,
+.reveal .token.symbol,
+.reveal .token.deleted {
+  color: #905;
+}
+.reveal .token.selector,
+.reveal .token.attr-name,
+.reveal .token.string,
+.reveal .token.char,
+.reveal .token.builtin,
+.reveal .token.inserted {
+  color: #690;
+}
+.reveal .token.operator,
+.reveal .token.entity,
+.reveal .token.url,
+.reveal .language-css .token.string,
+.reveal .style .token.string {
+  color: #a67f59;
+  background: rgba(255, 255, 255, 0.5);
+}
+.reveal .token.atrule,
+.reveal .token.attr-value,
+.reveal .token.keyword {
+  color: #07a;
+}
+.reveal .token.function {
+  color: #DD4A68;
+}
+.reveal .token.regex,
+.reveal .token.important,
+.reveal .token.variable {
+  color: #e90;
+}
+.reveal .token.important,
+.reveal .token.bold {
+  font-weight: bold;
+}
+.reveal .token.italic {
+  font-style: italic;
+}
+.reveal .token.entity {
+  cursor: help;
+}
+
+
+.reveal .iframe-preview {
+  position: relative;
+  height: 0;
+  padding-top: 62.5%;
+  width: 100%;
+}
+.reveal .iframe-preview > * {
+  display: block;
+  position: absolute;
+  width: 100% !important;
+  height: 100% !important;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+
+/**
+  * More Goodies!
+**/
+.state-background {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover !important;
+}
+
+.content-info {
+  transition: opacity .25s;
+}
+
+html[class]:not([class=""]) .content-info {
+  opacity: .25;
+}
+
+.cookie .state-background {
+  background-image: url('http://snugug.github.io/images/cookie.gif');
+}
+
+.responsive-web-design .state-background {
+  background-image: url('http://snugug.github.io/images/rwd.gif');
+}
+
+.brad .state-background {
+  background-color: #f2f0d8;
+}
+
+.treachery .state-background {
+  background-color: #f8eac1;
+}
+
+.jobs .state-background {
+  background-image: url('../images/jobs.jpg');
+  opacity: .25;
+  background-position: bottom left;
+  background-size: contain !important;
+  background-repeat: no-repeat;
+}
+
+/**
+  * List Stuff
+**/
+.reveal .list--sub {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+.reveal .list--sub li {
+  list-style: none;
+  line-height: 1em;
+}
+
+
+/**
+  * Blockquote
+**/
+.reveal blockquote {
+  box-sizing: border-box;
+  text-align: right;
+
+  border-right: .15em solid #4178be;
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+.reveal blockquote * + * {
+  margin-top: 1em;
+}
+
+.reveal blockquote footer a {
+  font-size: 1.15em;
+}
+
+.jobs--quote {
+  width: 60%;
+  float: right;
+}

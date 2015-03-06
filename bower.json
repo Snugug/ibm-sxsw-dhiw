@@ -1,0 +1,10 @@
+{
+  "name": "systems-of-design",
+  "version": "0.0.0",
+  "dependencies": {
+    "reveal.js": "~2.6.0",
+    "ibm-reveal": "git@git.design.ibm.com:uakravet/ibm-design-theme-for-reveal-js.git",
+    "prism": "git@github.com:PrismJS/prism.git#gh-pages",
+    "eq.js": "~1.6.0"
+  }
+}

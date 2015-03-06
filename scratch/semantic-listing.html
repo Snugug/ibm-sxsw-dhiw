@@ -1,0 +1,27 @@
+<article class="listing">
+  <section class="listing--details">
+    <h2 class="listing--details-header">Property Details</h2>
+    <ul class="listing--amenities">
+      {{% for amenity in listing.amenities %}}
+        <li class="listing--amenity">{{ amenity }}</li>
+      {{% endfor %}}
+    </ul>
+  </section>
+
+  <section class="listing--address" itemscope itemtype="http://schema.org/PostalAddress">
+    <h2 class="address--name" itemprop="name">{{ listing.name }}</h2>
+    <span class="address--street" itemprop="streetAddress">{{ listing.address.streetAddress }}</span>
+    <span class="address--locality" itemprop="addressLocality">{{ listing.address.addressLocality }}</span>,
+    <span class="address--region" itemprop="addressRegion">{{ listing.address.addressRegion }}</span>
+    <span class="address--postal-code" itemprop="postalCode">{{ listing.address.postalCode }}</span>
+  </section>
+
+
+  <a class="listing--view" href="https://www.google.com/maps/place/{{ listing.address.streetAddress}},+{{listing.address.addressLocality}},+{{listing.address.addressRegion}}+{{listing.address.postalCode}}">View Map</a>
+
+  {{% if listing.primary-image %}}
+    <aside class="listing--preview">
+      <img src="{{listing.primary-image" alt="{{listing.name}}">
+    </aside>
+  {{% endif %}}
+</article>
