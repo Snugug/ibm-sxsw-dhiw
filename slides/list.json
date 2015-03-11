@@ -22,12 +22,20 @@
     ],
     "perf-for-design.html",
     "neuroscience.html",
-    {
-        "filename": "the-treachery-of-images.html",
-        "attr": {
-            "data-state": "treachery"
-        }
-    },
+    [
+        "page-load.html",
+        "breakdown.html"
+    ],
+    [
+      {
+          "filename": "the-treachery-of-images.html",
+          "attr": {
+              "data-state": "treachery"
+          }
+      },
+      "collaboration.html"
+    ],
+
     "how-it-works.html",
     "thank-you.html"
 ]
